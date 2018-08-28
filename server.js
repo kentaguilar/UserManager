@@ -3,8 +3,9 @@ var bodyParser= require('body-parser');
 var app = express();
 var http = require('http').Server(app);
 var mongoClient = require('mongodb').MongoClient
-var mongoClientUrl = "mongodb://localhost:27017";
+var mongoClientUrl = "mongodb://127.0.0.1:27017";
 var model = require('./models/User.js');
+var url = require('./public/js/common/urlhelper.js');
 
 var db;
 var userCollection;
@@ -38,7 +39,13 @@ app.get('/', function(req, res){
 	res.render('pages/login.ejs');
 });
 app.get('/dashboard', function(req, res){	
-	res.render('pages/dashboard.ejs');
+	console.log(req.headers.referer);
+	if(url.UrlHelper.checkIfReferralIsValid(req.headers.referer)){
+		res.render('pages/dashboard.ejs');	
+	}	
+	else{
+		res.render('pages/notfound.ejs');	
+	}
 });
 app.get('/register', function(req, res){	
 	res.render('pages/registration.ejs');
