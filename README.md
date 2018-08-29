@@ -1,6 +1,6 @@
 # User Manager
 
-A straightforward display of basic authentication using NodeJS technologies<br/>
+A basic authentication workflow using NodeJS and MongoDB<br/>
 
 ## How to Use
 The purpose of this app is to showcase the basic registration and authentication workflow using NodeJS.<br/>
@@ -20,6 +20,7 @@ You should be redirected to the dashboard page. Your name should be displayed on
 ## Technologies
 - NodeJS
 - Bootstrap
+- Vanilla JS
 - Gulp
 - Nodemon
 - Uglify(minifier)
