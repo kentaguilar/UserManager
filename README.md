@@ -33,7 +33,7 @@ You should be redirected to the dashboard page. Your name should be displayed on
 Note: the dashboard page is protected so you can access it via login authentication
 
 ## API endpoints
-- Get User List(publicly for demo/testing/reference purposes) [GET Method] -> http://deepmirage.com:3000/api/get-users
+- Get User List(publicly available for demo/testing/reference purposes) [GET Method] -> http://deepmirage.com:3000/api/get-users
 - Authenticate User [POST Method] -> http://deepmirage.com:3000/api/auth-user
 - Register User [POST Method] -> http://deepmirage.com:3000/api/register-user
 

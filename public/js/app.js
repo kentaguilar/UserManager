@@ -1,4 +1,5 @@
 $(function(){
+	$('#txtusernamename').focus();
 	$('.btn-register-now').click(function(){
 		if($('#txtname').val() != "" && $('#txtusername').val() != "" && $('#txtpassword').val() != ""){
 			objParams = {	
@@ -28,28 +29,12 @@ $(function(){
 	});
 
 	$('.btn-login-now').click(function(){
-		if($('#txtusername').val() != "" && $('#txtpassword').val() != ""){
-			objParams = {	
-				'username': $('#txtusername').val(),		
-				'password': $('#txtpassword').val(),					
-			};
+		authenticateUser();
+	});
 
-			ApiHelper.saveData(
-				"/api/auth-user", 
-				objParams, 
-				function(obj){
-					console.log(obj);
-					if(obj.response.status){						
-						window.location = "/dashboard?id=" + obj.response.result._id + "&name=" + obj.response.result.name;
-					}
-					else{
-						toastr.warning("Login failed. Please enter correct credentials");
-					}
-				}
-			);
-		}
-		else{
-			toastr.warning("Please enter required fields");
+	$('#txtpassword').keypress(function(e){
+		if (e.keyCode == 13) {
+			authenticateUser();
 		}
 	});
 });
@@ -60,4 +45,30 @@ function clearRegistrationFields(){
 	$('#txtusername').val('');
 	$('#txtpassword').val('');
 	$('#txtname').focus();
+}
+
+function authenticateUser(){
+	if($('#txtusername').val() != "" && $('#txtpassword').val() != ""){
+		objParams = {	
+			'username': $('#txtusername').val(),		
+			'password': $('#txtpassword').val(),					
+		};
+
+		ApiHelper.saveData(
+			"/api/auth-user", 
+			objParams, 
+			function(obj){
+				console.log(obj);
+				if(obj.response.status){						
+					window.location = "/dashboard?id=" + obj.response.result._id + "&name=" + obj.response.result.name;
+				}
+				else{
+					toastr.warning("Login failed. Please enter correct credentials");
+				}
+			}
+		);
+	}
+	else{
+		toastr.warning("Please enter required fields");
+	}
 }
