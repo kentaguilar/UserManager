@@ -24,6 +24,9 @@ You should be redirected to the dashboard page. Your name should be displayed on
 - Gulp
 - Nodemon
 - Uglify(minifier)
+- Imagemin
+- Sass
+- Concat
 
 ## Main Pages
 - Login -> http://deepmirage.com:3000
