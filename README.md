@@ -7,9 +7,9 @@ The purpose of this app is to showcase the basic registration and authentication
 Tip: If you have trouble finding a desired user detail, you can grab one at -> https://randomuser.me<br/>
 
 First off, you need to register a user via the user registration page -> http://deepmirage.com:3000/register<br/>
-<img src="http://deepmirage.com/git/register.png" alt="User Registration" width="576px"/>
+<img src="http://deepmirage.com/git/register.png" alt="User Registration" width="576px"/><br/>
 Once registered, you can now use the entered username and password on the login page -> http://deepmirage.com:3000<br/>
-<img src="http://deepmirage.com/git/login.png" alt="User Login" width="579px"/>
+<img src="http://deepmirage.com/git/login.png" alt="User Login" width="579px"/><br/>
 Hit the "Login Now" button<br/>
 You should be redirected to the dashboard page. Your name should be displayed on the page. Like so,<br/>
 <img src="http://deepmirage.com/git/dashboard.png" alt="Dashboard" width="668px"/>
