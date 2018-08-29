@@ -37,9 +37,10 @@ $(function(){
 			ApiHelper.saveData(
 				"/api/auth-user", 
 				objParams, 
-				function(response){
-					if(response.status){						
-						window.location = "/dashboard";
+				function(obj){
+					console.log(obj);
+					if(obj.response.status){						
+						window.location = "/dashboard?id=" + obj.response.result._id + "&name=" + obj.response.result.name;
 					}
 					else{
 						toastr.warning("Login failed. Please enter correct credentials");

@@ -3,7 +3,8 @@ exports.User = {
 		userCollection.find().toArray(function(err, results) {
 			if (err) return console.log(err);			
 
-			res.render('index.ejs', {quotes: results});
+			res.setHeader('Content-Type', 'application/json');
+			res.send(JSON.stringify({users: results}));	
 		})	
 	},
 	authUser: function(userCollection, res, userObj){		
@@ -14,10 +15,15 @@ exports.User = {
 			}	
 			if(results.length <= 0){
 				status = false;
-			}			
+			}		
+
+			var response = {
+				result: results[0],
+				status: status
+			};	
 
 			res.setHeader('Content-Type', 'application/json');
-			res.send(JSON.stringify({status: status}));	
+			res.send(JSON.stringify({response: response}));	
 		})	
 	},
 	registerUser: function(userCollection, res, userObj){

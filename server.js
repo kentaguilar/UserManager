@@ -17,31 +17,30 @@ http.listen(3000, function(){
   console.log('listening on *:3000');
 });
 
-//connect to mongo db
+//----- DB Connection ------
 mongoClient.connect(mongoClientUrl, (err, client) => {
 	if (err) return console.log(err) 
 	
-	//initiate db
-	db = client.db('userdb')
-
-	//initiate collections
+	db = client.db('userdb')	
 	userCollection = db.collection('usercollection');
 
-	console.log('connected to mongo-db');
-})
+	console.log('connected to db');
+});
 
-//routing
+//----- Routing ------
+//Resources
 app.use('/js', express.static(__dirname + '/public/js'));
 app.use('/css', express.static(__dirname + '/public/css'));
 
-//views
+//Pages
 app.get('/', function(req, res){	
 	res.render('pages/login.ejs');
 });
-app.get('/dashboard', function(req, res){	
-	console.log(req.headers.referer);
+app.get('/dashboard', function(req, res){			
 	if(url.UrlHelper.checkIfReferralIsValid(req.headers.referer)){
-		res.render('pages/dashboard.ejs');	
+		res.render('pages/dashboard.ejs', {
+			name: req.query.name
+		});	
 	}	
 	else{
 		res.render('pages/notfound.ejs');	
@@ -51,15 +50,13 @@ app.get('/register', function(req, res){
 	res.render('pages/registration.ejs');
 });
 
-//api
+//Api
 app.get('/api/get-users', function(req, res){
 	model.User.getAllUsers(userCollection, res);
 });
-
 app.post('/api/auth-user', function(req, res){		
 	model.User.authUser(userCollection, res, req.body);
 });
-
 app.post('/api/register-user', function(req, res){		
 	model.User.registerUser(userCollection, res, req.body);
-});
+}); 
