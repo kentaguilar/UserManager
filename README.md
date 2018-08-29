@@ -4,17 +4,22 @@ A straightforward display of basic authentication using NodeJS technologies<br/>
 
 ## How-To-Use
 The purpose of this app is to showcase the basic registration and authentication workflow using NodeJS.<br/>
-Tip: If you have trouble finding a desired user detail, you can grab one at -> https://randomuser.me/<br/><br/>
+Tip: If you have trouble finding a desired user detail, you can grab one at -> https://randomuser.me<br/>
 
-- First off, you need to register a user via the user registration page -> http://deepmirage.com:3000/register
-- Once registered, you can now use the entered username and password on the login page -> http://deepmirage.com:3000
+- First off, you need to register a user via the user registration page -> http://deepmirage.com:3000/register<br/>
+<img src="http://deepmirage.com/git/register.png" alt="User Registration" width="668px"/>
+- Once registered, you can now use the entered username and password on the login page -> http://deepmirage.com:3000<br/>
+<img src="http://deepmirage.com/git/login.png" alt="User Login" width="668px"/>
 - Hit the "Login Now" button
-- You should be redirected to the dashboard page. Your name should be displayed on the page. Like so,
+- You should be redirected to the dashboard page. Your name should be displayed on the page. Like so,<br/>
+<img src="http://deepmirage.com/git/dashboard.png" alt="Dashboard" width="668px"/>
 
 ## Backend
 - Mongo DB
 
 ## Technologies
+- NodeJS
+- Bootstrap
 - Gulp
 - Nodemon
 - Uglify(minifier)
